@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
-}
+@import "./index.css";
+@import "./assets/fonts/stylesheet.css";
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* HEADER ******************** */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  width: 1240px;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.header-logo {
+  height: 30px;
+  cursor: pointer;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 590px;
+  padding-left: 40px;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  height: 37px;
+  border: none;
+  outline: none;
+  font-family: "Maison Neue";
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: #cbcccd;
+  font-size: 16px;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  color: #bbbbbb;
+}
+
+.header-button {
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  outline: none;
+}
+
+.button-login-signup {
+  background-color: white;
+  color: #2cb1ba;
+}
+
+.button-sold {
+  background-color: #2cb1ba;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button-signup {
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-logout {
+  height: 30px;
+  border-radius: 5px;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  outline: none;
+  border: none;
+  background-color: #c2175b;
+  color: white;
+}
+
+/* SIGNUP ********************** */
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
+.signup-form {
+  display: flex;
+  width: 275px;
+  margin: auto;
+  flex-direction: column;
+}
+.signup-form > input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.signup-form input::placeholder {
+  color: #cbcccd;
+  font-size: 16px;
+}
+
+.signup-form input[type="checkbox"] {
+  transform: scale(2);
+  margin-right: 20px;
+}
+
+.checkbox-container {
+  margin-top: 20px;
+  padding: 10px;
+}
+.checkbox-container > div {
+  display: flex;
+}
+.checkbox-container > p {
+  text-align: left;
+  color: #999999;
+  font-size: 12px;
+}
+
+.checkbox-container span {
+  color: #666666;
+}
+
+.signup-form button {
+  background-color: #2cb1ba;
+  height: 45px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.signup-container a {
+  color: #2cb1ba;
+  font-size: 12px;
+}
+
+.signup-login-error-message {
+  color: red;
+  font-size: 9px;
+}
+
+/* HOME ***************************** */
+
+.home-card-wrapper {
+  width: 1240px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.card-container {
+  width: 235px;
+  padding: 0 6px 16px;
+}
+
+.card-container > img {
+  height: 360px;
+  width: 235px;
+  object-fit: cover;
+}
+
+.card-avatar-username {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.card-avatar-username > img {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card-avatar-username > span {
+  color: #999999;
+  font-size: 12px;
+}
+
+.card-price-size-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-price-size-brand span:first-child {
+  font-size: 14px;
+}
+.card-price-size-brand span:not(:first-child) {
+  font-size: 12px;
+  color: #999999;
 }
