@@ -14,11 +14,14 @@ const Signup = ({ setUser }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:3001/user/signup", {
-        email: email,
-        password: password,
-        username: username,
-      });
+      const response = await axios.post(
+        "https://vinted-api.herokuapp.com/user/signup",
+        {
+          email: email,
+          password: password,
+          username: username,
+        }
+      );
       if (response.data.token) {
         setUser(response.data.token);
         history.push("/");
