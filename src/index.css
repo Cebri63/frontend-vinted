@@ -21,7 +21,8 @@ button {
   cursor: pointer;
 }
 
-input {
+input,
+button {
   outline: none;
 }
 
