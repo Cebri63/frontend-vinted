@@ -24,3 +24,7 @@ button {
 input {
   outline: none;
 }
+
+img {
+  pointer-events: none;
+}

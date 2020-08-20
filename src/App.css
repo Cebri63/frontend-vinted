@@ -153,19 +153,37 @@
 
 /* HOME ***************************** */
 
+.home-hero-bg-img {
+  background-image: url("./assets/hero.jpg");
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.home-hero-forme {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+}
 .home-card-wrapper {
   width: 1240px;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+  margin-top: 30px;
 }
 
 .card-container {
   width: 235px;
   padding: 0 6px 16px;
+  cursor: pointer;
 }
 
-.card-container > img {
+.card-container div:last-child img {
   height: 360px;
   width: 235px;
   object-fit: cover;
@@ -193,6 +211,7 @@
 .card-price-size-brand {
   display: flex;
   flex-direction: column;
+  padding: 8px;
 }
 
 .card-price-size-brand span:first-child {
