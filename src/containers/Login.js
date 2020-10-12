@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const history = useHistory();
+  const location = useLocation();
+  const fromPublish = location.state?.fromPublish ? true : null;
 
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
+      setIsLoading(true);
       const response = await axios.post(
-        "https://vinted-api.herokuapp.com/user/login",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email: email,
           password: password,
@@ -21,13 +26,15 @@ const Login = ({ setUser }) => {
       );
       if (response.data.token) {
         setUser(response.data.token);
-        history.push("/");
+        setIsLoading(false);
+        history.push(fromPublish ? "/publish" : "/");
       } else {
         alert("Une erreur est survenue, veuillez réssayer.");
       }
     } catch (error) {
       if (error.response.status === 401 || error.response.status === 400) {
         setErrorMessage("Mauvais email et/ou mot de passe");
+        setIsLoading(false);
       }
       console.log(error.message);
     }
@@ -53,7 +60,13 @@ const Login = ({ setUser }) => {
           type="password"
         />
         <span className="signup-login-error-message">{errorMessage}</span>
-        <button type="submit">Se connecter</button>
+        {isLoading ? (
+          <Loader type="Puff" color="#2CB1BA" height={40} width={40} />
+        ) : (
+          <button disabled={isLoading ? true : false} type="submit">
+            Se connecter
+          </button>
+        )}
       </form>
       <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
     </div>

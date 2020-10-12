@@ -8,14 +8,14 @@ const Header = ({ token, setUser }) => {
 
   return (
     <div className="header-container">
-      <img
+      <div
         onClick={() => {
           history.push("/");
         }}
-        className="header-logo"
-        src={logo}
-        alt="vinted"
-      />
+      >
+        <img className="header-logo" src={logo} alt="vinted" />
+      </div>
+
       <div className="search-container">
         <input
           type="text"
@@ -53,7 +53,14 @@ const Header = ({ token, setUser }) => {
           </button>
         </div>
       )}
-      <button className="header-button button-sold">Vends tes articles</button>
+      <button
+        onClick={() => {
+          history.push("/publish");
+        }}
+        className="header-button button-sold"
+      >
+        Vends tes articles
+      </button>
     </div>
   );
 };
